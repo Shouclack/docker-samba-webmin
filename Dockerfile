@@ -65,15 +65,14 @@ apk --no-cache --no-progress upgrade && \
 
 WORKDIR	/opt/webmin
 
-COPY	conf/setup.exp setup.exp && \
-	samba.sh /usr/bin/
+COPY	conf/setup.exp samba.sh /usr/bin/
 
 EXPOSE 137/udp 138/udp 139 445 10000
 
 HEALTHCHECK --interval=60s --timeout=15s \
              CMD smbclient -L '\\localhost' -U '%' -m SMB3
 
-RUN 	/usr/bin/expect ./setup.exp && \
+RUN 	/usr/bin/expect /usr/bin/setup.exp && \
 	rm setup.exp && \
 	apk del expect
 
