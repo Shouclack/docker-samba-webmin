@@ -73,7 +73,7 @@ HEALTHCHECK --interval=60s --timeout=15s \
              CMD smbclient -L '\\localhost' -U '%' -m SMB3
 
 RUN 	/usr/bin/expect /usr/bin/setup.exp && \
-	rm setup.exp && \
+	rm /usr/bin/setup.exp && \
 	apk del expect
 
 VOLUME	["/etc/webmin" , "/var/webmin" , "/etc/samba"]
