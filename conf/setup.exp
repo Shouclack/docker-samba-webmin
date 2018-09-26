@@ -14,13 +14,19 @@ send -- "\r"
 expect -exact "Full path to perl (default /usr/bin/perl):"
 send -- "\r"
 
+expect -exact "Operating system:"
+send -- "85\r"
+
+expect -exact "Version:"
+send -- "3.8\r"
+
 expect -exact "Web server port (default 10000):"
 send -- "\r"
 
 expect -exact "Login name (default admin):"
 send -- "\r"
 
-expect -exact "Login password:" 
+expect -exact "Login password:"
 send -- "admin\r"
 
 expect -exact "Password again:"
