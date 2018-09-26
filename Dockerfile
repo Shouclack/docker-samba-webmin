@@ -74,6 +74,7 @@ HEALTHCHECK --interval=60s --timeout=15s \
 
 RUN 	/usr/bin/expect /usr/bin/setup.exp && \
 	rm /usr/bin/setup.exp && \
+	chmod 665 /usr/bin/samba.sh && \
 	apk del expect
 
 VOLUME	["/etc/webmin" , "/var/webmin" , "/etc/samba"]
